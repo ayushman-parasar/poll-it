@@ -372,10 +372,6 @@ class Authenticate extends Component {
                   </h1>
                 )}
 
-                {/* <p className="lead text-center text-md-left text-muted">
-                  Learn programming exclusively online and improve your
-                  technical skills
-                </p> */}
                 {this.props.current_user ? (
                   <div className="text-center text-md-left mt-5">
                     <div className="row">
@@ -384,17 +380,6 @@ class Authenticate extends Component {
                           Create Poll
                         </button>
                       </a>
-                      {/* <a href="/polls" className="col">
-                        <button className="btn-inner--text btn btn-sm p-2 btn-success btn-block">
-                          See all Polls
-                        </button>
-                      </a> */}
-                      {/* <button
-                        onClick={this.handleClick}
-                        className="btn-inner--text btn btn-sm p-2 btn-warning btn-block"
-                      >
-                        See All Polls
-                      </button> */}
                     </div>
                   </div>
                 ) : (
@@ -411,16 +396,7 @@ class Authenticate extends Component {
                         </button>
                       </a>
                     </div>
-                    <div className="row p-5">
-                      {/* <a href="/polls" className="col"> */}
-                      {/* <button
-                        onClick={this.handleClick}
-                        className="btn-inner--text btn btn-sm p-2 btn-warning btn-block"
-                      >
-                        See All Polls
-                      </button> */}
-                      {/* </a> */}
-                    </div>
+                    <div className="row p-5"></div>
                   </div>
                 )}
               </div>
@@ -428,14 +404,9 @@ class Authenticate extends Component {
           </div>
         </div>
         <ul className="list-group pb-5">
-          {this.state.polls ? (
+          {this.state.polls &&
             this.state.polls.map((poll, index) => {
               return (
-                // <div classNameName="d-flex ">
-
-                //   <a href={`/polls/${poll.id}`}>{poll.title}</a>
-                //   <span>Votes: {poll.users.length}</span>
-                // </div>
                 <li
                   key={index}
                   className="list-group-item d-flex justify-content-between align-items-center"
@@ -446,10 +417,7 @@ class Authenticate extends Component {
                   </span>
                 </li>
               );
-            })
-          ) : (
-            <h2>No Polls Made Yet</h2>
-          )}
+            })}
         </ul>
       </div>
     );
