@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'react-rails'
 
 gem "bcrypt"
-
+gem 'sqlite3', '~> 1.4'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
