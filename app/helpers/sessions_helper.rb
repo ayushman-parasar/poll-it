@@ -36,5 +36,4 @@ module SessionsHelper
     session.delete(:forwarding_url)
   end
 
-
 end
