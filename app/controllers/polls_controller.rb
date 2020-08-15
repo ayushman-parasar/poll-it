@@ -1,5 +1,5 @@
 class PollsController < ApplicationController
-  before_action :logged_in_user, only:[:index, :create, :show]
+  before_action :logged_in_user, only:[ :create, :show, :new]
 
   def index
     @polls = Poll.all
@@ -27,7 +27,8 @@ class PollsController < ApplicationController
     p params[:id], "params id"
     @poll = Poll.find_by(id: params[:id])
     @options = @poll.options
-    p @poll, "single poll"
+    # p @poll, "single poll"
+    @count = @poll.users.size
   end
 
   def destroy

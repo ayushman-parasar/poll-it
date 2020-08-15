@@ -54,6 +54,7 @@ class Login extends React.Component {
       <React.Fragment>
         <div className="jumbotron mt-5">
           <h1 className="text-primary p-3">Login Form</h1>
+
           <form onSubmit={this.handleSubmit}>
             {this.state.errors ? <Error errors={this.state.errors} /> : null}
             <div className="form-group font-weight-bold">
@@ -84,10 +85,14 @@ class Login extends React.Component {
                 value={this.state.session.password}
               />
             </div>
-
-            <button type="submit" class="btn btn-primary">
-              Submit
-            </button>
+            <div className="d-flex">
+              <button type="submit" class="btn btn-primary">
+                Submit
+              </button>
+              <a className="btn btn-success ml-2" href="/signup">
+                Signup
+              </a>
+            </div>
           </form>
         </div>
       </React.Fragment>

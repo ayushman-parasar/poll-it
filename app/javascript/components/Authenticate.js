@@ -345,7 +345,9 @@ class Authenticate extends Component {
                 ) : (
                   <h1 className="display-4 text-center text-md-left mb-3">
                     Create your own{" "}
-                    <strong className="text-primary">POLL</strong>
+                    <strong className="text-primary">
+                      <a href="/polls/new">POLL</a>
+                    </strong>
                   </h1>
                 )}
 
@@ -379,6 +381,13 @@ class Authenticate extends Component {
                       <a href="/login" className="col">
                         <button className="btn-inner--text btn btn-sm p-2 btn-success btn-block">
                           Login
+                        </button>
+                      </a>
+                    </div>
+                    <div className="row p-5">
+                      <a href="/polls" className="col">
+                        <button className="btn-inner--text btn btn-sm p-2 btn-warning btn-block">
+                          See All Polls
                         </button>
                       </a>
                     </div>
