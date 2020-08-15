@@ -30,22 +30,28 @@ class Home extends React.Component {
       <React.Fragment>
         <h1>All Polls</h1>
         <ul className="list-group">
-          {this.props.polls &&
-            this.props.polls.map((poll) => {
+          {this.props.polls ? (
+            this.props.polls.map((poll, index) => {
               return (
                 // <div classNameName="d-flex ">
 
                 //   <a href={`/polls/${poll.id}`}>{poll.title}</a>
                 //   <span>Votes: {poll.users.length}</span>
                 // </div>
-                <li className="list-group-item d-flex justify-content-between align-items-center">
+                <li
+                  key={index}
+                  className="list-group-item d-flex justify-content-between align-items-center"
+                >
                   <a href={`/polls/${poll.id}`}>{poll.title}</a>
                   <span className="badge badge-primary badge-pill">
                     Votes: {poll.users.length}
                   </span>
                 </li>
               );
-            })}
+            })
+          ) : (
+            <h2>No Polls Made Yet</h2>
+          )}
         </ul>
       </React.Fragment>
     );

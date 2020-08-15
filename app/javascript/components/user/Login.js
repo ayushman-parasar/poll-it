@@ -86,7 +86,7 @@ class Login extends React.Component {
               />
             </div>
             <div className="d-flex">
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" className="btn btn-primary">
                 Submit
               </button>
               <a className="btn btn-success ml-2" href="/signup">

@@ -75,23 +75,21 @@ class Poll extends React.Component {
               {this.props.options &&
                 this.props.options.map((option, index) => {
                   return (
-                    <>
-                      <li key={index} className="list-group-item">
-                        <p className="text-primary">{option.title}</p>
-                        <span>
-                          Votes: <strong>{option.count}</strong>
-                        </span>
-                        <button
-                          className="btn-success btn-sm ml-3"
-                          style={{ width: "3rem" }}
-                          onClick={() =>
-                            this.handleClick(option.id, this.props.poll.id)
-                          }
-                        >
-                          Vote
-                        </button>
-                      </li>
-                    </>
+                    <li key={index} className="list-group-item">
+                      <p className="text-primary">{option.title}</p>
+                      <span>
+                        Votes: <strong>{option.count}</strong>
+                      </span>
+                      <button
+                        className="btn-success btn-sm ml-5"
+                        style={{ width: "3rem" }}
+                        onClick={() =>
+                          this.handleClick(option.id, this.props.poll.id)
+                        }
+                      >
+                        Vote
+                      </button>
+                    </li>
                   );
                 })}
             </ul>

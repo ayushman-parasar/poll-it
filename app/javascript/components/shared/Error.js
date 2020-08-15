@@ -8,8 +8,12 @@ class Error extends React.Component {
     return (
       <ul>
         {this.props &&
-          this.props.errors.map((error) => {
-            return <li className="text-danger">{error}</li>;
+          this.props.errors.map((error, index) => {
+            return (
+              <li key={index} className="text-danger">
+                {error}
+              </li>
+            );
           })}
       </ul>
     );
