@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   resources :votes
   get "/static_pages" => "static_pages#index"
   root "static_pages#index"
+  namespace :api do
+    namespace :v1 do
+      get '/result'=> "results#index"
+    end
+  end
 
   
   get '*path', to: 'static_pages#index'

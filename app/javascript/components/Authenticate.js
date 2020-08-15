@@ -2,6 +2,27 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class Authenticate extends Component {
+  constructor() {
+    super();
+    this.state = {
+      polls: "",
+    };
+  }
+  componentDidMount() {
+    fetch("/api/v1/result", {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "X-CSRF-TOKEN": document.querySelector('[name="csrf-token"]').content,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) =>
+        this.setState({
+          polls: res.polls,
+        })
+      );
+  }
   render() {
     return (
       <div>
@@ -363,11 +384,17 @@ class Authenticate extends Component {
                           Create Poll
                         </button>
                       </a>
-                      <a href="/polls" className="col">
+                      {/* <a href="/polls" className="col">
                         <button className="btn-inner--text btn btn-sm p-2 btn-success btn-block">
                           See all Polls
                         </button>
-                      </a>
+                      </a> */}
+                      {/* <button
+                        onClick={this.handleClick}
+                        className="btn-inner--text btn btn-sm p-2 btn-warning btn-block"
+                      >
+                        See All Polls
+                      </button> */}
                     </div>
                   </div>
                 ) : (
@@ -385,11 +412,14 @@ class Authenticate extends Component {
                       </a>
                     </div>
                     <div className="row p-5">
-                      <a href="/polls" className="col">
-                        <button className="btn-inner--text btn btn-sm p-2 btn-warning btn-block">
-                          See All Polls
-                        </button>
-                      </a>
+                      {/* <a href="/polls" className="col"> */}
+                      {/* <button
+                        onClick={this.handleClick}
+                        className="btn-inner--text btn btn-sm p-2 btn-warning btn-block"
+                      >
+                        See All Polls
+                      </button> */}
+                      {/* </a> */}
                     </div>
                   </div>
                 )}
@@ -397,6 +427,30 @@ class Authenticate extends Component {
             </div>
           </div>
         </div>
+        <ul className="list-group pb-5">
+          {this.state.polls ? (
+            this.state.polls.map((poll, index) => {
+              return (
+                // <div classNameName="d-flex ">
+
+                //   <a href={`/polls/${poll.id}`}>{poll.title}</a>
+                //   <span>Votes: {poll.users.length}</span>
+                // </div>
+                <li
+                  key={index}
+                  className="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  <a href={`/polls/${poll.id}`}>{poll.title}</a>
+                  <span className="badge badge-primary badge-pill">
+                    Votes: {poll.users.length}
+                  </span>
+                </li>
+              );
+            })
+          ) : (
+            <h2>No Polls Made Yet</h2>
+          )}
+        </ul>
       </div>
     );
   }
